@@ -1,14 +1,13 @@
 # Artificial Intelligence Nanodegree
 ## Introductory Project: Diagonal Sudoku Solver
-Student:  Kahlil Khan, kahlilkhan@gmail.com
+Student:  Kahlil Khan
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: The naked twin strategy constrains the values of other boxes in the same unit by ensuring no other boxes in that unit share any digits with the twins.  It does this by eliminating either of the twin's values as a possiblity for the remaining unsolved boxes.  This often reduces the number of digits in these peers, increasing the efficiency of the other strategies and the recursive depth-first search method.
+A: The naked twin strategy ensures that no other box in the same unit shares digits with naked twins.  It is essentially an advanced elimination technique.  Once a naked twin pair is found, the function iterates through the rest of the shared units to remove the twin's two digits from the peers.   Although this may not solve the peer's value, it often reduces its number of possibilities, increasing the efficiency of the other strategies and the recursive depth-first search function.
 
 # Question 2 (Diagonal Sudoku)
-Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: By adding the two major diagonals as units to the unitlist and peers dictionaries, these units become constraints to the existing solution functions (eliminate, only choice, naked twins, reduce, and search) that rely on those dictionaries to identify peers.  For example, the "eliminate" function now factors in the diagonal units when reviewing a box's peers, and if that box falls on either of the major diagonals, there are additional peers to iterate through for possible value elimination.
+Q: By adding the two major diagonals as units to the unitlist and peers dictionaries, these units become constraints to the existing solution functions (eliminate, only choice, naked twins, reduce, and search) that rely on those dictionaries to identify peers.  For example, the "eliminate" function now factors in the diagonal units when reviewing a box's peers, and if that box falls on either of the major diagonals, there are additional peers to iterate through for possible value elimination.  Adding constraints, such as diagonal units, appears to restrict the number of possibilities remaining for unsolved boxes, making the puzzle easier to solve.
 
 ### Install
 
